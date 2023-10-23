@@ -1,0 +1,92 @@
+@import 'vars';
+
+@mixin flexContainer($gap: $spacing-sm, $direction: row) {
+    display: flex;
+    gap: $gap;
+    flex-direction: $direction;
+} 
+
+@mixin btn($borr: 5px, $padd, $bc, $c: $whiteClr) { 
+    border-radius: $borr;
+    padding: $padd;
+    background-color: $bc;
+    color: $c;
+}
+
+
+.page_container {
+    width: max(330px, 85%);
+    padding-inline: min(2vw, 2em);
+    margin: 0 auto;
+}
+
+.cardsWrapper {
+    background-color: lighten($primaryClr-darken, 10);
+    padding-block: $spacing-l;
+}
+
+.cardsContainer {
+    @include flexContainer($spacing-md);
+    padding: $spacing-md min(2vw, 3em);
+    flex-wrap: wrap;
+}
+
+
+.card {
+    flex: 1;
+    display: grid;
+    border-radius: 5px;
+    padding: 1em 2.5em;
+    gap: $spacing-sm;
+    background-color: $primaryClr-darken;
+    box-shadow: 5px 10px 10px $primaryClr-darken;
+    transition: .3s;
+
+    &:hover {
+        translate: 0 -5px;
+        box-shadow: 10px 15px 10px darken($accentClr-orange, 25);
+    }
+}
+
+
+.primaryBtn {
+    @include btn(5px, 1em 2.5em, $accentClr-orange);
+    box-shadow: 0px 0px 60px $accentClr-orange;
+    border: 1px solid none;
+    transition: .3s;
+
+    &:hover {
+        background-color: transparent;
+        box-shadow: 0px 0px 50px $accentClr-orange, inset 0px 0px 35px 10px $accentClr-orange;
+    }
+}
+
+.btnDark {
+    @include btn(5px, 1em 2em, #000);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 50%;
+        translate: -50% -50%;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-image: radial-gradient(#333, #000 30%);
+        z-index: -1;
+        transition: scale .5s ease;
+        scale: 0;
+    }
+
+    &:hover::before {
+        scale: 5;
+    }
+}
+
+section {
+    padding-block: $spacing-xl;
+}
+
