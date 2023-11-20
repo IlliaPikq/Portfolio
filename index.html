@@ -40,7 +40,7 @@
                         <h1 class="heading">Fullstack developer</h1>
                     </div>
                     <p class="textAbout">Passionate about everything, entrant developer</p>
-                    <button class="primaryBtn">Get in touch</button>
+                    <a class="primaryBtn" href="#contact">Get in touch</a>
                     <div class="media">
                         <a href="https://github.com/IlliaPikq">
                             <span>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="gitHubBio">
                     <img src="" alt=" ">
-                    <h1 class="gitHubName">Illia_Pikq</h1>
+                    <h1 class="gitHubName">IlliaPikq</h1>
                 </div>
         <script>
             const profileAvatarElement =  document.querySelector('.gitHubBio img')
@@ -94,8 +94,8 @@
         <section class="stack | page_container">
                 <div class="techStack">
                     <div class="tabWrapper">
-                        <button class="tab active">FrontEnd</button>
-                        <button class="tab">Backend</button>
+                        <button class="tab active">Front-end</button>
+                        <button class="tab">Back-end</button>
                         <button class="tab">Tools</button>
                     </div>
                     <div class="tabContent">
@@ -132,13 +132,13 @@
                 </div>
             <script>
                 const tabs = document.querySelectorAll('.techStack .tab')
-                const content = document.querySelector('.techStack .tabContent')
+                const tabContent = document.querySelector('.techStack .tabContent')
 
                 tabs.forEach((tab, i) => tab.addEventListener('click', () => selectTab(tab, i)))
 
                 function selectTab(tab, i) {
                     const previousTab = document.querySelector('.techStack .tab.active')
-                    const previousContent = content.querySelector('[data-display="block"]')
+                    const previousContent = tabContent.querySelector('[data-display="block"]')
 
                     if (previousTab === tab) return 
 
@@ -146,9 +146,9 @@
                     previousContent.style.display = 'none' 
                     previousContent.dataset.display = 'none'
 
-                    const current = content.children[i]
-                    current.style.display = 'block';
-                    current.dataset.display = 'block'
+                    const currentTab = tabContent.children[i]
+                    currentTab.style.display = 'block';
+                    currentTab.dataset.display = 'block'
                     tab.classList.add('active')
                 }
             </script>

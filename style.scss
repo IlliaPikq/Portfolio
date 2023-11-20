@@ -70,7 +70,8 @@ header {
         .primaryBtn { 
             margin-top: 1.5em;
             justify-self: start;
-        }
+            font-size: 1rem;
+        }   
 
         .media {
             @include flexContainer($spacing-sm);
@@ -145,6 +146,7 @@ header {
         width: 100%;
         display: grid;
         place-items: center;
+        border-radius: 1em;
         padding: $spacing-sm;
         background-color: $primaryClr-darken;
 
@@ -152,6 +154,7 @@ header {
         .tabWrapper {
             display: flex;
             gap: $spacing-sm;
+            
         }
 
         .tab {
@@ -207,34 +210,17 @@ header {
     @include flexContainer($spacing-xl, column);
 
     .wrapper {
+        padding: 1.5em 1em;
+
         &:nth-child(odd) {
             @include flexContainer($spacing-sm, row);
         }
 
         &:nth-child(even) {
             position: relative;
-            padding: 1em .5em;
+            border-radius: 1em;
+            background-color: $primaryClr-darken;
             @include flexContainer($spacing-sm, row-reverse);
-
-            &::before, &::after {
-                content: '';
-                display: block;
-                width: 100%;
-                height: 2em;
-                position: absolute;
-                left: 0;
-                z-index: -1;
-                background: $accentClr-orange;
-                border-radius: 5px;
-            }
-
-            &::before {
-                top: 0;    
-            }
-
-            &::after {
-                bottom: 0;
-            }
         }
 
         .aboutProject {
